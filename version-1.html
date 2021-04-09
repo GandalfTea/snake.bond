@@ -1,0 +1,169 @@
+
+
+<!DOCTYPE html>
+
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8'/>
+		<title>Version 0.1</title>
+		<link href='version.css' rel='stylesheet'/>
+	</head>
+	<body>
+		<div class='page'>
+			<div class='menus'>
+				<div class='game-button'>
+					<a href='main.html' class='button'>Game</a>
+				</div>
+
+				<div class='version-menu'>
+					<ul class='version-list'>
+						<li class='item invalid'>version 0.3</li>
+						<li class='item invalid'>version 0.2</li>
+						<li class='item'><a href='#'>version 0.1</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class='content'>
+
+				<h3>0.1</h3>
+				<p>This is the first iteration of the project. I started by knowing no HTML, CSS and
+				only vary basic and theoretical JS (from the textbook <em>Eloquent Javascript</em>). 
+				My first main source was a tutorial by the name <a href='https://www.internetingishard
+				.com/html-and-css/' target='_blank'>HTML And CSS is Hard</a> by Interneting Is Hard. While it may sound 
+				dubious at first sight, it did a great job introducing me to basic web development. The first 
+				visual prototype was built in Adobe XD: </p>
+
+				<img src='images/XD-prototype.svg' alt="Adobe XD Prototype" style='width:700px;height:300;'/>
+				
+				<p>This was translated to HTML and CSS by using <em>floats</em>. Starting from version 0.2,
+				the page uses <em>flexbox</em>. It offed only a static page with no buttons and no
+				interactions. The page can be accessed <a href='old/prototype-1.html' target='_blank'> here</a> (opens in new tab).</p>
+
+				<h4>HTML</h4>
+
+				<div class='code-background'>
+					<p><pre><code>
+		&lt;!DOCTYPE html&gt;
+
+		&lt;html lang='en'&gt;
+			&lt;head&gt;
+				&lt;meta charset='UTF-8'&gt;
+				&lt;title&gt;Snek&lt;/title&gt;
+				&lt;link rel='stylesheet' href='styles.css'&gt;
+			&lt;/head&gt;
+
+			&lt;body&gt;
+				&lt;div class='page'&gt;
+					&lt;div class = 'buttons'&gt;
+						&lt;div class='empty-space'&gt;&lt;/div&gt;
+						&lt;div class='empty-space-2'&gt;&lt;/div&gt;
+						&lt;a class='button' href='nowhere.html'&gt;Restart&lt;/a&gt;
+						&lt;a class='button' href='nowhere.html'&gt;Devlog&lt;/a&gt;
+
+					&lt;/div&gt;
+
+					&lt;div class='play-area'&gt;
+		
+					&lt;/div&gt;
+
+					&lt;div class = 'buttons-2'&gt;
+						&lt;a class='button' href='nowhere.html'&gt;Score&lt;/a&gt;
+						&lt;a class='button' href='nowhere.html'&gt;Debug&lt;/a&gt;
+					&lt;/div&gt;
+
+					&lt;div class='data'&gt;
+		
+					&lt;/div&gt;
+
+				&lt;/div&gt;
+			&lt;/body&gt;
+		&lt;/html&gt;
+					</code></pre></p>
+				</div>
+
+				<h4>CSS</h4>
+
+
+				<div class='code-background'>
+					<p><pre><code>
+
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			background-color: #121212;
+		}
+
+		.page {
+			background-color: #121212;
+			overflow: hidden;
+		}
+
+		.play-area {
+			width: 670px;
+			height: 500px;
+			float: left;
+			background-color: #202020;
+			margin-left: 50px;
+			margin-top: 15px;
+			margin-bottom: 50px;
+			border-radius: 50px;
+		}
+
+		.data {
+			width: 450px;
+			height: 410px;
+			float: right;
+			background-color: #191919;
+			border-radius: 50px;
+			margin-right: 50px;
+		}
+
+		.buttons {
+			height: 115px;
+			width: 700px;
+			overflow: hidden;
+		}
+
+		.buttons-2 {
+			width: 450px;
+			height: 50px;
+			margin-top: 50px;
+			margin-right: 30px;;
+			float: right;
+		}
+
+		.empty-space {
+			height: 75%;
+			width: 500px;
+		}
+
+		.empty-space-2 {
+			float: left;
+			width: 80px;
+			height: 500px;
+		}
+
+		.button {
+			background-color: #303030;
+			padding: 10px 30px;
+			border-radius: 30px;	
+			margin-left: 10px;
+		}
+
+		a {
+			color: #888888;
+			text-decoration: none;
+			font-family: "HelveticaNeue-Light","Helvetica", "Arial", sans-serif;
+			font-weight: bold;	
+		}
+		
+					</p></pre></code>
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>

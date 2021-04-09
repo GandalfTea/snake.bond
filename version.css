@@ -1,0 +1,152 @@
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #101010;
+
+	animation: fadeInAnimation ease 2s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+
+.page {
+	display: flex;
+	justify-content: space-around;
+}
+
+p {
+	font-family: "HelveticaNeue-Light", "Helvetica", "Arial", sans-serif;
+}
+
+.menus {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	top: 100px;
+	left: 50px;
+}
+
+.menus a{
+	color: #c6c6cc;
+	text-decoration: none;
+	font-family: "HelveticaNeue-Light", "Helvetica", "Arial", sans-serif;
+
+}
+
+.game-button a {
+	background-color: #A34A28;
+	padding: 10px 30px;
+	border-radius: 50px;
+	margin-right: 50px;
+	margin-left: 110px;
+	margin-bottom: 60px;
+	font-family: "HelveticaNeue-Light", "Helvetica", "Arial", sans-serif;
+	font-weight: bold;
+}
+
+.version-menu {
+	margin-top: 100px;
+}
+
+.version-list {
+	list-style: none;
+}
+
+.version-list a{
+	color: #c6c6cc;
+	text-decoration: none;
+}
+
+.item {
+	color: #c6c6cc;
+	font-size: 15px;
+	font-weight: bold;
+	margin-left: 120px;
+	margin-top: 80px;
+	font-family: "HelveticaNeue-Light", "Helvetica", "Arial", sans-serif;
+}
+
+.invalid {
+	color: #505050;
+}
+
+.content {
+	height: 2500px;
+	width: 850px;
+	background-color: #202020;
+	border-radius: 50px;
+	margin-top: 130px;
+	margin-left: 300px;
+	margin-bottom: 50px;
+	
+	display: flex;
+	flex-direction: column;
+}
+
+.content a {
+	text-decoration: none;
+	color: #A34A28;
+}
+.content a:hover {
+	color: #A34A10;
+}
+
+.content img {
+	margin-left: 75px;
+	margin-top: 30px;
+	margin-bottom: 50px;
+	border-radius: 50px;
+}
+
+.content pre code{
+	color: #c6c6cc;
+}
+
+.code-background {
+	background-color: #262626;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+
+.content h3 {
+	color: #c6c6cc;
+	font-family: "HelveticaNeue-Light", "Helvetica", "Arial", sans-serif;
+	padding-left: 100px;
+	padding-top: 100px;
+	padding-bottom: 50px;
+}
+
+.content h4 {
+	color: #c6c6cc;
+	font-family: "HelveticaNeue-Light", "Helvetica", "Arial", sans-serif;
+	padding-left: 100px;
+	padding-top: 100px;
+	padding-bottom: 20px;
+}
+
+.content p {
+	color: #c6c6cc;
+	font-family: "HelveticaNeue-Light", "Helvetica", "Arial", sans-serif;
+	font-weight: normal;
+	text-align: justify;
+	line-height: 1.8;
+	padding-left: 100px;
+	padding-right: 100px;
+}

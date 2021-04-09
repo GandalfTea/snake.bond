@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Web_1920_6);
+      }
+
+      .cls-2 {
+        fill: #202020;
+      }
+
+      .cls-3 {
+        fill: #191919;
+      }
+
+      .cls-4 {
+        fill: #303030;
+      }
+
+      .cls-5 {
+        fill: #888;
+        font-size: 24px;
+        font-family: ProximaNova-Semibold, Proxima Nova;
+        font-weight: 600;
+      }
+
+      .cls-6 {
+        fill: #a34a28;
+      }
+
+      .cls-7 {
+        fill: #121212;
+      }
+    </style>
+    <clipPath id="clip-Web_1920_6">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_6" data-name="Web 1920 – 6" class="cls-1">
+    <rect class="cls-7" width="1920" height="1080"/>
+    <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-2" width="1133" height="760" rx="85" transform="translate(74 198)"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-3" width="590" height="607" rx="55" transform="translate(1258 359)"/>
+    <rect id="Rectangle_22" data-name="Rectangle 22" class="cls-4" width="154" height="55" rx="27.5" transform="translate(123 107)"/>
+    <rect id="Rectangle_28" data-name="Rectangle 28" class="cls-4" width="154" height="55" rx="27.5" transform="translate(294 107)"/>
+    <rect id="Rectangle_30" data-name="Rectangle 30" class="cls-4" width="154" height="55" rx="27.5" transform="translate(1460 265)"/>
+    <rect id="Rectangle_31" data-name="Rectangle 31" class="cls-3" width="154" height="55" rx="27.5" transform="translate(1291 265)"/>
+    <text id="Restart" class="cls-5" transform="translate(159 120)"><tspan x="0" y="22">Restart</tspan></text>
+    <text id="Devlog" class="cls-5" transform="translate(329 120)"><tspan x="0" y="22">Devlog</tspan></text>
+    <rect id="Rectangle_39" data-name="Rectangle 39" class="cls-6" width="27" height="27" rx="13.5" transform="translate(635 490)"/>
+    <rect id="Rectangle_40" data-name="Rectangle 40" class="cls-6" width="18" height="18" rx="9" transform="translate(653 523)"/>
+    <rect id="Rectangle_41" data-name="Rectangle 41" class="cls-6" width="18" height="18" rx="9" transform="translate(660 543)"/>
+    <rect id="Rectangle_42" data-name="Rectangle 42" class="cls-6" width="18" height="18" rx="9" transform="translate(671 564)"/>
+    <rect id="Rectangle_43" data-name="Rectangle 43" class="cls-6" width="19" height="18" rx="9" transform="translate(687 580)"/>
+    <rect id="Rectangle_44" data-name="Rectangle 44" class="cls-6" width="18.128" height="18.128" rx="9.064" transform="translate(705.733 604.469) rotate(-59)"/>
+    <rect id="Rectangle_45" data-name="Rectangle 45" class="cls-6" width="18.128" height="18.128" rx="9.064" transform="translate(726.159 610.7) rotate(-59)"/>
+    <rect id="Rectangle_46" data-name="Rectangle 46" class="cls-6" width="18.128" height="18.128" rx="9.064" transform="translate(747.919 614.711) rotate(-59)"/>
+    <rect id="Rectangle_47" data-name="Rectangle 47" class="cls-6" width="18.128" height="18.128" rx="9.064" transform="translate(771.012 616.502) rotate(-59)"/>
+    <rect id="Rectangle_48" data-name="Rectangle 48" class="cls-6" width="18.128" height="18.128" rx="9.064" transform="translate(795.59 616.55) rotate(-59)"/>
+    <rect id="Rectangle_49" data-name="Rectangle 49" class="cls-6" width="18.128" height="18.128" rx="9.064" transform="translate(818.897 617.845) rotate(-59)"/>
+    <rect id="Rectangle_50" data-name="Rectangle 50" class="cls-6" width="18.128" height="18.128" rx="9.064" transform="translate(839.615 626.909) rotate(-59)"/>
+    <rect id="Rectangle_51" data-name="Rectangle 51" class="cls-6" width="18.128" height="18.128" rx="9.064" transform="translate(856.448 642.447) rotate(-59)"/>
+    <rect id="Rectangle_52" data-name="Rectangle 52" class="cls-6" width="14" height="14" rx="7" transform="translate(270 442)"/>
+    <text id="Debug" class="cls-5" transform="translate(1499 277)"><tspan x="0" y="22">Debug</tspan></text>
+    <text id="Stats" class="cls-5" transform="translate(1339 277)"><tspan x="0" y="22">Stats</tspan></text>
+  </g>
+</svg>
