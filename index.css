@@ -2,12 +2,13 @@
 
 body {
 	background-color: #101010;
+	overflow: hidden;
 }
 
 
 p {
 	color: #A34A28;
-	font-family: "HelveticaNeue-Light", "Helvetica", "Arial", sans-serif;
+	font-family: "Proxima Nova", "Helvetica", "Arial", sans-serif;
 }
 
 
@@ -23,8 +24,10 @@ p {
 
 .smol {
 	display: flex;
-	color: #532615;
+	color: #c6c6cc;
 	z-index: 2;
+	font-family: "Lato", "Helvetica";
+	font-weight: 10;
 	font-size: 35px;
 	position: relative;
 	top: 220px;
@@ -33,39 +36,92 @@ p {
 }
 
 .title {
+	width: 200px;
 	display: flex;
 	z-index: 1;
 	flex-direction: row;
-	font-size: 90px;
-	margin-left: 110px;
+	font-size: 80px;
+	margin-left: 140px;
 	margin-top: 100px;
+	font-weight: 500;
 }
 
-.faded {
-	color: #532615;
-}
 
 .big {
 	font-weight: bold;
 }
 
+#circle-1 {
+	animation: cir-animation 4s infinite, fadein 20s;
 
-#circle {
-	height: 700px;
-	width: 700px;
+	height: 600px;
+	width: 600px;
 	border-radius: 500px;
-	background-color: #151515;
+	background-color: #202020;
 	display: flex;
 	z-index: 0;
 	position: absolute;
-	top: 10%;
+	top: -5%;
+	left: 54%;
+	bottom: 3%;
+
+}
+
+#circle-1:hover {
+	background-color: #222222;
+}
+
+@keyframes cir-animation {
+	from {top: -5%;}
+	to {top: -100%;}
+}
+
+#circle-2 {
+	animation: cir-anim-2 4s infinite, fadein 20s;
+
+	height: 600px;
+	width: 600px;
+	border-radius: 500px;
+	background-color: #202020;
+	display: flex;
+	z-index: 0;
+	position: absolute;
+	top: 80%;
+	left: 54%;
+
+}
+
+#circle-2:hover {
+	background-color: #222222;
+}
+
+@keyframes cir-anim-2 {
+	from {top: 100%;}
+	to {top: -5%;}
+}
 
 
+#circle-3 {
+	height: 600px;
+	width: 600px;
+	border-radius: 500px;
+	background-color: #c6c6cc;
+	display: flex;
+	z-index: 0;
+	position: absolute;
+	top: 80%;
+	left: -15%;
+
+	-webkit-animation: fadein 20s;
+	   -moz-animation: fadein 20s;
+	    -ms-animation: fadein 20s;
+	     -o-animation: fadein 20s;
+	        animation: fadein 20s;
 }
 
 #continue {
 	width: 70px;
-	background-color: #202020;
+	background-color: #303030;
 	border-radius: 50px;
 	padding: 10px 40px;
 	color: #101010;
@@ -73,7 +129,6 @@ p {
 	font-weight: bold;
 	text-decoration: none;
 	margin-left: 280px;
-	margin-top: 30px;
 	z-index: 1;
 	
 	-webkit-animation: fadein 10s;
@@ -83,13 +138,18 @@ p {
 	        animation: fadein 10s;
 }
 
+#continue:hover {
+	background-color: #404040;
+
+}
+
 
 #snake {
-	-webkit-animation: fadein 20s;
-	   -moz-animation: fadein 20s;
-	    -ms-animation: fadein 20s;
-	     -o-animation: fadein 20s;
-	        animation: fadein 20s;
+	-webkit-animation: fadein 15s;
+	   -moz-animation: fadein 15s;
+	    -ms-animation: fadein 15s;
+	     -o-animation: fadein 15s;
+	        animation: fadein 15s;
 }
 
 @keyframes fadein {
