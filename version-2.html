@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8'/>
+		<title>Version 0.1</title>
+		<link href='version.css' rel='stylesheet'/>
+	</head>
+	<body>
+		<div class='page'>
+			<div class='menus'>
+				<div class='game-button'>
+					<a href='main.html' class='button'>Game</a>
+				</div>
+
+				<div class='version-menu'>
+					<ul class='version-list'>
+						<li class='item invalid'>version 0.3</li>
+						<li class='item'><a href='#'>version 0.2</a></li>
+						<li class='item valid'><a href='version-1.html'>version 0.1</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class='content'>
+
+				<h3>0.2</h3>
+				
+				<p>The full code for the website and game can be found on
+				<a href='https://github.com/GandalfTea/snake.bond' 
+					target='_blank'>GitHub</a>
+
+				<h5>Overview</h5>
+				<p>This version focuses mostly on implementing the missing
+				features from <a href='version-1.html'>version 1</a>. These
+				include :</p>
+				<ul>
+					<li>The ability to play the game.</li>
+					<li>Welcome screen</li>
+					<li>Devlog</li>
+					<li>Scoring System</li>
+				</ul>
+
+				<p>Alongside these, some structural changes are also in 
+				place, most important being the transition from using 
+				<em>float</em> to using <em>flex</em>.
+
+				<h5>Welcome Screen</h5>
+				<p>The main idea was to make a joke based on the James Bond
+				movies. For that, I needed a fade-in animation that would
+				allow the work <em>snake.</em> to appear after the user has 
+				read the phrase <em>The name's bond</em>. This custom 
+				animation was done in CSS :</p>
+
+				<h4>HTML</h4>
+
+				<div class='code-background'>
+					<p><pre><code>
+		&lt;!DOCTYPE html&gt;
+
+		&lt;html lang='en'&gt;
+			&lt;head&gt;
+				&lt;title&gt;Welcome&lt;/title&gt;
+				&lt;link rel='stylesheet' href='index.css'&gt;
+			&lt;/head&gt;
+
+			&lt;body&gt;
+				&lt;div class='container'&gt;
+					&lt;p class='smol'&gt;The name's&lt;/p&gt;
+					&lt;div class ='title'&gt;
+						&lt;p class='faded' id='snake'&gt;snake.&lt;/p&gt;
+						&lt;p class='big'&gt;bond&lt;/p&gt;
+					&lt;/div&gt;
+					&lt;a href='main.html' id='continue'&gt;Continue&lt;/a&gt;
+				&lt;/div&gt;
+				&lt;div id='circle-1'>&lt;/div&gt;
+				&lt;div id='circle-2'>&lt;/div&gt;
+				&lt;div id='circle-3'>&lt;/div&gt;
+			&lt;/body&gt;
+		&lt;/html&gt;
+					</code></pre></p>
+				</div>
+
+				<h4>CSS Animation</h4>
+
+				<div class='code-background'>
+					<p><pre><code>
+		#snake {
+			-webkit-animation: fadein 15s;
+			   -moz-animation: fadein 15s;
+			    -ms-animation: fadein 15s;
+			     -o-animation: fadein 15s;
+				animation: fadein 15s;
+		}
+
+		@keyframes fadein {
+			from { opacity: 0;}
+			to   { opacity: 1;}
+		}
+
+		@-moz-keyframes fadein {
+			from { opacity: 0;}
+			to   { opacity: 1;}
+		}
+
+		@-webkit-keyframes fadein {
+			from { opacity: 0;}
+			to   { opacity: 1;}
+		}
+
+		@-ms-keyframes fadein {
+			from { opacity: 0;}
+			to   { opacity: 1;}
+		}
+
+		@-o-keyframes fadein {
+			from { opacity: 0;}
+			to   { opacity: 1;}
+		}
+
+					</code></pre></p>
+				</div>
+				<h5>Game</h5>
+
+				<p>The main reference for the game was <a href='https://www
+				.youtube.com/watch?v=QTcIXok9wNY' target='_blank'>this</a>
+				YouTube video. Using it to get the general architecture of 
+				the game, this version of the website has a very rough JS
+				file. The main features of the game include :</p>
+				<ul>
+					<li>Mapping the board</li>
+					<li>Render the snake</li>
+					<li>Move the snake based on variable SNAKE_SPEED</li>
+					<li>Random food position</li>
+					<li>Eat the food and expand the snake by EXPAND_RATE</li>
+					<li>Lose when touching the border or your tail</li>
+				</ul>
+				<p>The code will be refactored in the next version and 
+				there will be more features, alongside control for the 
+				important variables on the website</p>
+
+				<h4>Game Loop</h4>
+
+				<div class='code-background'>
+					<p><pre><code>
+		function main(currentTime) {
+
+			if(gameOver){
+				return alert("You Lose");
+			}
+
+			window.requestAnimationFrame(main);
+			if ((currentTime - lastRenderTime) / 1000 &lt; 1 / SNAKE_SPEED) return;
+			lastRenderTime = currentTime;
+			console.log("Render");
+
+
+			updateSnake();
+			updateFood();
+			checkDeath();
+			renderSnake(gameBoard);
+			renderFood(gameBoard);
+
+			document.getElementById('score').innerHTML = score;
+
+		}
+
+		window.requestAnimationFrame(main);
+					</code></pre></p>
+				</div>
+
+				<h4>Render Snake</h4>
+
+				<div class='code-background'>
+					<p><pre><code>
+		function renderSnake(gameBoard) {
+			gameBoard.innerHTML = '';
+			SNAKE_BODY.forEach(segment => {
+				const snakeElement = document.createElement('div');
+				snakeElement.style.gridRowStart = segment.y;
+				snakeElement.style.gridColumnStart = segment.x;
+				snakeElement.classList.add('snake');
+				gameBoard.appendChild(snakeElement);
+			})
+		}
+					</code></pre></p>
+				</div>
+			
+				<h4>Input</h4>
+					
+				<div class='code-background'>
+					<p><pre><code>
+		function getInputDirection() {
+			window.addEventListener('keydown', e => {
+				switch(e.key) {
+					case 'ArrowUp':
+						if (lastInputDirection.y !== 0) break;
+						inputDirection = { x: 0, y: -1};
+						break;
+					case 'ArrowDown':
+						if (lastInputDirection.y !== 0) break;
+						inputDirection = { x: 0, y: 1};
+						break;
+					case 'ArrowLeft':
+						if (lastInputDirection.x !== 0) break;
+						inputDirection = { x: -1, y: 0};
+						break;
+					case 'ArrowRight':
+						if (lastInputDirection.x !== 0) break;
+						inputDirection = { x: 1, y: 0};
+						break;
+				}
+			})
+
+			lastInputDirection = inputDirection;
+
+			return inputDirection;
+		}
+					</code></pre></p>
+				</div>
+
+				<h5>Devlog</h5>
+
+				<p>Implemented a gamelog page (this one) for all 3 versions
+				of the game to document the progress. The 3 pages use the
+				same CSS stylesheet.
+
+			</div>
+		</div>
+	</body>
+</html>

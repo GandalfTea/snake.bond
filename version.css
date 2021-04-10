@@ -87,13 +87,14 @@ p {
 }
 
 .content {
-	height: 2500px;
+	height: auto;
 	width: 850px;
 	background-color: #202020;
 	border-radius: 50px;
 	margin-top: 130px;
 	margin-left: 300px;
 	margin-bottom: 50px;
+	padding-bottom: 50px;
 	
 	display: flex;
 	flex-direction: column;
@@ -141,6 +142,17 @@ p {
 	padding-bottom: 20px;
 }
 
+.content h5 {
+	color: #c6c6cc;
+	font-family: "HelveticaNeue-Light", "Helvetica", "Arial", sans-serif;
+	padding-left: 100px;
+	padding-top: 80px;
+	padding-bottom: 30px;
+	font-size: 17px;
+
+}
+
+ul,
 .content p {
 	color: #c6c6cc;
 	font-family: "HelveticaNeue-Light", "Helvetica", "Arial", sans-serif;
@@ -149,4 +161,10 @@ p {
 	line-height: 1.8;
 	padding-left: 100px;
 	padding-right: 100px;
+}
+
+ul {
+	margin-left: 50px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }

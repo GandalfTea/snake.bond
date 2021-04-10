@@ -13,21 +13,31 @@
 		<div class='page'>
 			<div class='playable-area'>
 				<div class='buttons'>
-					<a class='button button-one' href='main.html'>Restart</a>
 					<a class='button' href='version-1.html'>Devlog</a>
 				</div>
-
 				<div id='game'>
 					<a href='#' class='start-game-button'>Start Game</a>
 				</div>
 			</div>
 			<div class='info-area'>
-				<h5>Stats</h5>
-
-				<div class='info-screen'>
+				<div class='score-area'>
 					<h1 id='score'></h1>
+					<p>points</p>
 				</div>
-				
+				<div class='settings'>
+					<div class='settings-div init'>
+						<p class='speed-text'>Speed</p>
+						<p id='speed-value'>0</p>
+						<button onclick="incrementSpeed()" id='speed-button-up' class='settings-button'>+</button>
+						<button onclick="decrementSpeed()" id='speed-button-down' class='settings-button'>-</button>
+					</div>
+					<div class='settings-div'>
+						<p class='expand-text'>Expansion Value</p>
+						<p id='expand-value'>0</p>
+						<button onclick="incrementExpand()" id='speed-button-up' class='settings-button'>+</button>
+						<button onclick="decrementExpand()" id='speed-button-down' class='settings-button'>-</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>

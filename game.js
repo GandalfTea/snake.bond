@@ -1,7 +1,8 @@
 
-const GRID_SIZE = 50;
-const SNAKE_SPEED = 10;
-const EXPANSION_RATE = 2;
+const GRID_SIZE_ROW = 40;
+const GRID_SIZE_COLUMN = 60;
+SNAKE_SPEED = 10;
+EXPANSION_RATE = 2;
 const SNAKE_BODY = [ {x: 25, y: 25 }]
 const gameBoard = document.getElementById('game');
 
@@ -10,7 +11,6 @@ let lastRenderTime = 0;
 let inputDirection = { x: 0, y: 0};
 let food = getRandomFoodPosition();
 let newSegments = 0;
-
 
 let score = 0;
 
@@ -33,6 +33,8 @@ function main(currentTime) {
 	renderFood(gameBoard);
 
 	document.getElementById('score').innerHTML = score;
+	document.getElementById('speed-value').innerHTML = SNAKE_SPEED;
+	document.getElementById('expand-value').innerHTML = EXPANSION_RATE;
 
 }
 
@@ -116,8 +118,8 @@ function getRandomFoodPosition() {
 
 function randomGridPosition() {
 	return {
-		x: Math.floor(Math.random() * GRID_SIZE) + 1,
-		y: Math.floor(Math.random() * GRID_SIZE) + 1
+		x: Math.floor(Math.random() * GRID_SIZE_COLUMN) + 1,
+		y: Math.floor(Math.random() * GRID_SIZE_ROW) + 1
 	}	
 }
 
@@ -157,8 +159,8 @@ function checkDeath() {
 
 function outsideGrid(position) {
 	return (
-		position.x < 1 || position.x > GRID_SIZE ||
-		position.y < 1 || position.y > GRID_SIZE
+		position.x < 1 || position.x > GRID_SIZE_COLUMN ||
+		position.y < 1 || position.y > GRID_SIZE_ROW
 	)
 }
 
@@ -170,6 +172,24 @@ function snakeIntersection() {
 	return onSnake(SNAKE_BODY[0], { ignoreHead: true })
 }
 
+
+// Setters
+
+function incrementSpeed(){
+	SNAKE_SPEED += 5;
+}
+
+function decrementSpeed(){
+	SNAKE_SPEED -= 5;
+}
+
+function incrementExpand() {
+	EXPANSION_RATE += 1;
+}
+
+function decrementExpand() {
+	EXPANSION_RATE -= 1;
+}
 
 // Make grid
 // Render one single snake ball.
