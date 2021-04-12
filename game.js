@@ -68,7 +68,7 @@ function renderSnake(gameBoard) {
 
 function expandSnake(amount) {
 	newSegments += amount;
-	score += amount / 2;
+	score += amount / EXPANSION_RATE;
 }
 
 function addSegments() {
@@ -180,7 +180,9 @@ function incrementSpeed(){
 }
 
 function decrementSpeed(){
-	SNAKE_SPEED -= 5;
+	if(SNAKE_SPEED != 10){
+		SNAKE_SPEED -= 5;
+	} else return;
 }
 
 function incrementExpand() {
@@ -188,7 +190,10 @@ function incrementExpand() {
 }
 
 function decrementExpand() {
-	EXPANSION_RATE -= 1;
+	if(EXPANSION_RATE != 1){
+		EXPANSION_RATE -= 1;
+	}
+	else return;
 }
 
 // Make grid

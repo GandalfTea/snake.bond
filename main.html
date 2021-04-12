@@ -4,9 +4,9 @@
 <html lang='en'>
 	<head>
 		<meta charset='UTF-8'/>
-		<title>Snek</title>
+		<title>snake.bond</title>
 		<link rel='stylesheet' href='main.css'>
-		<script src='game.js' defer></script>
+		<script src='re-game.js' defer></script>
 	</head>
 
 	<body>
@@ -27,15 +27,23 @@
 				<div class='settings'>
 					<div class='settings-div init'>
 						<p class='speed-text'>Speed</p>
-						<p id='speed-value'>0</p>
 						<button onclick="incrementSpeed()" id='speed-button-up' class='settings-button'>+</button>
+						<p id='speed-value'>0</p>
 						<button onclick="decrementSpeed()" id='speed-button-down' class='settings-button'>-</button>
 					</div>
 					<div class='settings-div'>
 						<p class='expand-text'>Expansion Value</p>
-						<p id='expand-value'>0</p>
 						<button onclick="incrementExpand()" id='speed-button-up' class='settings-button'>+</button>
+						<p id='expand-value'>0</p>
 						<button onclick="decrementExpand()" id='speed-button-down' class='settings-button'>-</button>
+					</div>
+					<div class='settings-div'>
+						<p class='auto-speed-text'>Auto Speed Increse</p>
+						<input type='checkbox' id='speed-switch'/><label for='speed-switch'>Speed</label>
+					</div>
+					<div class='settings-div'>
+						<p class='food-text'>Food Movement</p>
+						<input type='checkbox' id='food-switch'/><label for='food-switch'>Speed</label>
 					</div>
 				</div>
 			</div>
