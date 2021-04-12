@@ -13,16 +13,20 @@
 		<div class='page'>
 			<div class='playable-area'>
 				<div class='buttons'>
-					<a class='button' href='version-1.html'>Devlog</a>
+					<a class='button' id='button-devlog' href='version-1.html'>Devlog</a>
+
 				</div>
-				<div id='game'>
-					<a href='#' class='start-game-button'>Start Game</a>
-				</div>
+				<div id='game'></div>
+				<p id='help-text'>Press <strong>SPACE</strong> to restart.</p>
 			</div>
 			<div class='info-area'>
 				<div class='score-area'>
 					<h1 id='score'></h1>
 					<p>points</p>
+				</div>
+				<div class ='highscore'>
+					<h3>Highscore :</h3>
+					<p id='highscore-value'>0<p>
 				</div>
 				<div class='settings'>
 					<div class='settings-div init'>
@@ -39,12 +43,13 @@
 					</div>
 					<div class='settings-div'>
 						<p class='auto-speed-text'>Auto Speed Increse</p>
-						<input type='checkbox' id='speed-switch'/><label for='speed-switch'>Speed</label>
+						<input type='checkbox' id='speed-switch'/><label for='speed-switch' id='speed-switch'>Speed</label>
 					</div>
 					<div class='settings-div'>
 						<p class='food-text'>Food Movement</p>
 						<input type='checkbox' id='food-switch'/><label for='food-switch'>Speed</label>
 					</div>
+					<p class='rage-warning'>Rage Warning</p>
 				</div>
 			</div>
 		</div>

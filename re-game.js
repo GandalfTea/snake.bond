@@ -1,9 +1,8 @@
 
+const GRID_SIZE_ROW = 40;
+const GRID_SIZE_COLUMN = 65;
 
-const GRID_SIZE_ROW = 39;
-const GRID_SIZE_COLUMN = 59;
-
-const SNAKE_BODY = [ { x: 25, y: 25 } ];
+let SNAKE_BODY = [ { x: 25, y: 25 } ];
 const GAME_BOARD = document.getElementById('game');
 
 let SNAKE_SPEED = 10;
@@ -19,18 +18,32 @@ let renderCount = 0;
 let lastRender = 0;
 let score = 0;
 let expandValue = 0;
+let highscore = 0;
 
 let food = randomPosition();
 
-
-
 function loop(currentTime) {
+
+	//	Revert stylistic UI elements
+	document.getElementById('game').classList.remove('shakey');
+	document.getElementById('help-text').style.display = "none";
+	changeNormalColor();
+
 
 
 	checkFail();
 
 	if(gameOver){
-		return alert('You Lose');
+		changeFailColor();
+		document.getElementById('help-text').style.display = "initial";
+		document.getElementById('game').classList.add('shakey');
+		if (score > highscore) highscore = score;
+		document.body.onkeyup = function(e){
+			if(e.keyCode == 32){
+				restart(true);
+			}
+		}
+		return;
 	}
 
 	window.requestAnimationFrame(loop);
@@ -46,6 +59,7 @@ function loop(currentTime) {
 	document.getElementById('score').innerHTML = score;
 	document.getElementById('speed-value').innerHTML = SNAKE_SPEED;
 	document.getElementById('expand-value').innerHTML = EXPANSION_RATE;
+	document.getElementById('highscore-value').innerHTML = highscore;
 	
 	// Game Functions
 	updateSnake();
@@ -125,7 +139,6 @@ function updateSnake() {
 	SNAKE_BODY[0].x += input.x;
 	SNAKE_BODY[0].y += input.y;
 
-
 	//	Render
 	GAME_BOARD.innerHTML = '';	// Erase the last snake render
 
@@ -178,6 +191,7 @@ function updateFood() {
 	foodElement.style.gridColumnStart = food.x;
 
 	foodElement.classList.add('food');
+	foodElement.setAttribute('id', 'snake-circle');
 	GAME_BOARD.appendChild(foodElement);
 }
 
@@ -263,9 +277,17 @@ function moveFood(condition) {
 }
 
 function moveFoodFunc() {
-	console.log(lastDirection);
-	food.x += lastDirection.x;
-	food.y += lastDirection.y;
+
+	if (food.x + lastDirection.x > 1 && food.x + lastDirection.x < GRID_SIZE_COLUMN - 2 &&
+	    food.y + lastDirection.y > 1 && food.y + lastDirection.y < GRID_SIZE_ROW - 2) {
+
+		food.x += lastDirection.x;
+		food.y += lastDirection.y;
+
+	} else {
+		lastDirection = randomDirection();
+		moveFoodFunc();
+	}
 
 }
 
@@ -297,4 +319,34 @@ function randomDirection() {
 			return { x: 0, y: 1 };
 		}
 	}
+}
+
+function restart(condition) {
+	if (condition){
+
+		SNAKE_BODY = [ { x: 25, y: 25 } ];
+		gameOver = false;
+		foodMovCount = 0;
+		renderCount = 0;
+		score = 0;
+		expandValue = 0;
+		food = randomPosition();
+		lastDirection = { x: 0, y: 0 };
+		lastInput = { x: 0, y: 0 };
+
+		window.requestAnimationFrame(loop);
+	}
+}
+
+
+function changeFailColor() {
+	document.getElementById('button-devlog').style.backgroundColor = "#A2231D";
+	document.getElementById('score').style.color = "#A2231D";
+	document.getElementById('highscore-value').style.color = "#A2231D";
+}
+
+function changeNormalColor() {
+	document.getElementById('button-devlog').style.backgroundColor = "#A34A28";
+	document.getElementById('score').style.color = "#A34A28";
+	document.getElementById('highscore-value').style.color = "#A34A28";
 }

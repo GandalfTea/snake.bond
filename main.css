@@ -32,6 +32,7 @@ body {
 	margin: 0 auto;
 }
 
+
 .playable-area{
 	margin-top: 5%;
 	margin-left: 10%;
@@ -44,7 +45,7 @@ body {
 #game{
 	display: grid;
 	grid-template-rows: repeat(40, 1fr);
-	grid-template-columns: repeat(60, 1fr);
+	grid-template-columns: repeat(65, 1fr);
 
 	margin-top: 5%;
 	position: relative;
@@ -53,33 +54,55 @@ body {
 	height: 70vmin;
 	background-color: #202020;
 	border-radius: 60px;
+	z-index: 1;
 }
 
-
-.start-game-button {
-	background-color: #303030;
-	padding: 30px 70px;
-	border-radius: 50px;
-	position: absolute;
-	top: 330px;
-	left: 210px;
+.shakey {
+	animation: shake 0.5s;
 }
 
-.start-game-button:hover{
-	background-color: #343434;
+@keyframes shake {
+	10%, 90% {
+		transform: translate3d(-1px, 0, 0);
+	}
+	20%, 80% {
+		transform: translate3d(2px, 0, 0);
+	}
+	30%, 50%, 70% {
+		transform: translate3d(-4px, 2px, 0);
+	}
+	40%, 60% {
+		transform: translate3d(4px, 0, 0);
+	}
 }
 
-.start-game-button:active,
-.start-game-button:visited {
+#help-text {
 	display: none;
+	color: #c6c6cc;
+	font-size: 20px;
+	text-decoration: none;
+	font-family: "Lato", "Proxima-Nova", "Helvetica", "Arial", sans-serif;
+	margin-top: 48%;
+	margin-left: 24%;
+	position: absolute
 }
+
+#help-text strong {
+	color: #a34a28;
+	font-size: 20px;
+	text-decoration: none;
+	font-family: "Lato", "Proxima-Nova", "Helvetica", "Arial", sans-serif;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
 
 .info-area {
 	width: 50%;
 	height: 100%;
 	margin-right: 5%;
 	margin-left: 1.5%;
-	margin-top: 10%;
+	margin-top: 200px;
 
 	display: flex;
 	flex-direction: column;
@@ -88,6 +111,7 @@ body {
 .score-area {
 	display: flex;
 	flex-direction: row;
+	height: 100px;
 }
 
 .score-area p {
@@ -114,6 +138,30 @@ body {
 	font-size: 80px;
 }
 
+.highscore {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 50px;
+	margin-left: 75px;
+}
+
+.highscore h3 {
+	text-decoration: none;
+	font-family: "Lato", "Proxima-Nova", "Helvetica", "Arial", sans-serif;
+	font-weight: lighter;
+	font-size: 17px;
+	color: #c6c6cc;
+}
+
+.highscore p {
+	text-decoration: none;
+	font-family: "Lato", "Proxima-Nova", "Helvetica", "Arial", sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+	color: #a34a28;
+	margin-left: 10px;
+
+}
 
 .settings {
 	height: 350px;
@@ -194,7 +242,15 @@ body {
 	background-color: #151515;
 }
 
-
+.rage-warning {
+	background-color: #303030;
+	color: #a34a28;
+	font-family: "HelveticaNeue-Light", "Helvetica", "Arial", sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+	margin-left: 31px;
+	margin-top: 6px;
+}
 
 
 
@@ -247,12 +303,10 @@ a {
 	padding: 10px 30px;
 	border-radius: 50px;
 	margin-left: 13%;
-	border: #A34A28 solid 1px;
 }
 
 .button:hover {
-	background-color: #101010;
-	border: #A34A28 solid 1px;
+	background-color: #823b20;
 }
 
 
