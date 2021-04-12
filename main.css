@@ -165,7 +165,7 @@ body {
 
 .settings {
 	height: 350px;
-	width: 85%;
+	width: 280px;
 
 	background-color: #303030;
 	border-radius: 50px;
@@ -183,7 +183,7 @@ body {
 	margin-top: 10px;
 	margin-left: 20px;
 	width: 240px;
-	background-color: #303030;
+	background: transparent;
 	display:flex;
 	flex-direction: row;
 }
