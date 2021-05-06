@@ -1,12 +1,15 @@
+// Setters
 
 const GRID_SIZE_ROW = 40;
 const GRID_SIZE_COLUMN = 65;
 
-let SNAKE_BODY = [ { x: 25, y: 25 } ];
+let SNAKE_BODY = [ { x: 25, y: 25 } ];   // Start in the middle
 const GAME_BOARD = document.getElementById('game');
 
 let SNAKE_SPEED = 10;
 let EXPANSION_RATE = 2;
+
+// Function Variables
 
 let gameOver = false;
 let autoExpand = false;
@@ -22,9 +25,11 @@ let highscore = 0;
 
 let food = randomPosition();
 
+// Main game loop
 function loop(currentTime) {
 
-	//	Revert stylistic UI elements
+	// Revert stylistic UI elements to initial after loss
+	// TODO: should only run in the initial loop
 	document.getElementById('game').classList.remove('shakey');
 	document.getElementById('help-text').style.display = "none";
 	changeNormalColor();
@@ -36,9 +41,9 @@ function loop(currentTime) {
 	if(gameOver){
 		changeFailColor();
 		document.getElementById('help-text').style.display = "initial";
-		document.getElementById('game').classList.add('shakey');
+		document.getElementById('game').classList.add('shakey'); // Shake animation on gameboard
 		if (score > highscore) highscore = score;
-		document.body.onkeyup = function(e){
+		document.body.onkeyup = function(e){	// Restart upon pressing SPACE
 			if(e.keyCode == 32){
 				restart(true);
 			}
@@ -57,6 +62,7 @@ function loop(currentTime) {
 
 	// Update Elements
 	document.getElementById('score').innerHTML = score;
+	// TODO: should only refresh upon update.
 	document.getElementById('speed-value').innerHTML = SNAKE_SPEED;
 	document.getElementById('expand-value').innerHTML = EXPANSION_RATE;
 	document.getElementById('highscore-value').innerHTML = highscore;
@@ -66,6 +72,7 @@ function loop(currentTime) {
 	updateFood();
 	
 
+	// Move Food if ckecked.
 	if (score < 10){
 		if (renderCount % 5 == 0 && renderCount != 0){
 			moveFood(document.getElementById('food-switch').checked);
@@ -90,8 +97,11 @@ let inputDirection = { x: 0, y: 0};
 function getInput() {
 	window.addEventListener('keydown', e => {
 		switch(e.key) {
+
+			// Do not permit 90* turn.
+
 			case 'ArrowUp':
-				if(lastInput.y !== 0) break;	// Do not permit 90* turn.
+				if(lastInput.y !== 0) break;
 				inputDirection = { x: 0, y: -1};
 				break;
 			case 'ArrowDown':
@@ -123,6 +133,9 @@ function updateSnake() {
 	
 	//	Add segments
 	for(let i = 0; i < expandValue; i++) {
+
+		// The ... operator is super cool
+
 		SNAKE_BODY.push( { ...SNAKE_BODY[SNAKE_BODY.length - 1 ]});
 		console.log("Expand Added");
 	}
@@ -131,6 +144,7 @@ function updateSnake() {
 
 
 	//	Move Snake
+	// Start from last, move to prev.
 	for (let i = SNAKE_BODY.length - 2; i >= 0; i--) {
 		SNAKE_BODY[i+1].x = SNAKE_BODY[i].x;
 		SNAKE_BODY[i+1].y = SNAKE_BODY[i].y;
@@ -139,9 +153,11 @@ function updateSnake() {
 	SNAKE_BODY[0].x += input.x;
 	SNAKE_BODY[0].y += input.y;
 
+
 	//	Render
 	GAME_BOARD.innerHTML = '';	// Erase the last snake render
 
+	// Lambda function like in Lisp are also super cool.
 	SNAKE_BODY.forEach (segment => {
 		const snakePoint = document.createElement('div');
 
@@ -160,6 +176,7 @@ function randomPosition() {
 	newPosition.x = Math.floor(Math.random() * GRID_SIZE_COLUMN) + 1;
 	newPosition.y = Math.floor(Math.random() * GRID_SIZE_ROW) + 1;
 
+	// Check for snake touch
 	for (let i = 0; i == SNAKE_BODY.length - 1; i++) {
 		if (SNAKE_BODY[i].x == newPosition.x && SNAKE_BODY[i].y == newPosition.y) {
 			return randomPosition();
@@ -168,10 +185,10 @@ function randomPosition() {
 	return newPosition;
 }
 
+
+
 function updateFood() {
 	
-
-
 	// 	Let hungry snake eat food
 	if (SNAKE_BODY[0].x == food.x && SNAKE_BODY[0].y == food.y){
 		expandValue += EXPANSION_RATE;
@@ -209,16 +226,31 @@ function checkFail() {
 
 		const failure = (segment) => {
 			if(segment == SNAKE_BODY[0]) return false;
-			return segment.x === SNAKE_BODY[0].x && segment.y ===SNAKE_BODY[0].y;
+			return segment.x === SNAKE_BODY[0].x && segment.y === SNAKE_BODY[0].y;
 		}
 		gameOver = SNAKE_BODY.some(failure);
 		return;
 	}
 }
 
+function restart(condition) {
+	if (condition){
+
+		SNAKE_BODY = [ { x: 25, y: 25 } ];
+		gameOver = false;
+		foodMovCount = 0;
+		renderCount = 0;
+		score = 0;
+		expandValue = 0;
+		food = randomPosition();
+		lastDirection = { x: 0, y: 0 };
+		lastInput = { x: 0, y: 0 };
+
+		window.requestAnimationFrame(loop);
+	}
+}
 
 //	UI SETTERS
-
 
 function incrementSpeed() {
 	SNAKE_SPEED += 5;
@@ -243,7 +275,7 @@ function decrementExpand() {
 
 // Modifiers
 
-
+// TODO: This could increse by 1 every point.
 function autoIncreseSpeed (condition) {
 	if (condition) {
 		if (score != 0) {
@@ -255,7 +287,7 @@ function autoIncreseSpeed (condition) {
 }
 
 
-
+// TODO: moveFood could be nested functions
 function moveFood(condition) {
 
 	if (condition && foodMovCount != 0) {
@@ -295,6 +327,8 @@ function randomDirection() {
 
 	let cond1 = Math.round(Math.random());
 	
+	// TODO: This could be a switch statement with only one random var.
+	
 	if (cond1 == 0){
 		//Left or Right
 		let cond2 = Math.round(Math.random());
@@ -320,24 +354,6 @@ function randomDirection() {
 		}
 	}
 }
-
-function restart(condition) {
-	if (condition){
-
-		SNAKE_BODY = [ { x: 25, y: 25 } ];
-		gameOver = false;
-		foodMovCount = 0;
-		renderCount = 0;
-		score = 0;
-		expandValue = 0;
-		food = randomPosition();
-		lastDirection = { x: 0, y: 0 };
-		lastInput = { x: 0, y: 0 };
-
-		window.requestAnimationFrame(loop);
-	}
-}
-
 
 function changeFailColor() {
 	document.getElementById('button-devlog').style.backgroundColor = "#A2231D";
