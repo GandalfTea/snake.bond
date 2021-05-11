@@ -157,7 +157,7 @@ function updateSnake() {
 	//	Render
 	GAME_BOARD.innerHTML = '';	// Erase the last snake render
 
-	// Lambda function like in Lisp are also super cool.
+	// Lambda function like in Scheme are also super cool.
 	SNAKE_BODY.forEach (segment => {
 		const snakePoint = document.createElement('div');
 
